@@ -1,4 +1,6 @@
 import 'package:aslab_travel/latihanmodul/pertemuan4.dart';
+import 'package:aslab_travel/latihanmodul/pertemuan5.dart';
+import 'package:aslab_travel/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +13,7 @@ class TravelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyApp(),
+      home: Splashscreen(),
     );
   }
 }
