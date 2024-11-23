@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Pertemuan5 extends StatefulWidget {
-  const Pertemuan5({super.key});
+class FormScreen extends StatefulWidget {
+  const FormScreen({super.key});
 
   @override
-  State<Pertemuan5> createState() => _Pertemuan5State();
+  State<FormScreen> createState() => _FormScreenState();
 }
 
-class _Pertemuan5State extends State<Pertemuan5> {
+class _FormScreenState extends State<FormScreen> {
   bool switchValue = false;
-  String selectedRadio = '';
   bool olahraga = false;
   bool seni = false;
+  String selectedRadio = '';
   String nama = '';
   TextEditingController textEditingController = TextEditingController();
 
@@ -19,81 +19,101 @@ class _Pertemuan5State extends State<Pertemuan5> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pertemuan 5 Widget Lanjutan'),
+        backgroundColor: Colors.blueAccent,
+        title: Text('Halaman Form'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Row(
+              children: [
+                Image.asset(
+                  'images/kucing-marah.jpg',
+                  height: 150,
+                  width: 150,
+                ),
+                Image.asset(
+                  'images/meme-kocak-kucing.jpeg',
+                  height: 150,
+                  width: 150,
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
             TextField(
+              onChanged: (String value) {},
               controller: textEditingController,
               decoration: InputDecoration(
                 labelText: 'Masukkan Nama',
               ),
-              onChanged: (String value) {
-                setState(() {
-                  nama = value;
-                });
-              },
             ),
             SizedBox(
               height: 20,
             ),
             Row(
               children: [
-                Text('Jenis Kelamin'),
+                Text('Jenis Kelamin : '),
                 Radio(
-                    value: 'Laki-Laki',
-                    groupValue: selectedRadio,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedRadio = value.toString();
-                      });
-                    }),
+                  value: 'Laki-Laki',
+                  groupValue: selectedRadio,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedRadio = value.toString();
+                    });
+                  },
+                ),
                 Text('Laki-Laki'),
                 Radio(
-                    value: 'Perempuan',
-                    groupValue: selectedRadio,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedRadio = value.toString();
-                      });
-                    }),
+                  value: 'Perempuan',
+                  groupValue: selectedRadio,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedRadio = value.toString();
+                    });
+                  },
+                ),
                 Text('Perempuan'),
               ],
             ),
             SizedBox(
               height: 20,
             ),
-            Text('Hobi:'),
             CheckboxListTile(
-                title: Text('Olahraga'),
-                value: olahraga,
-                onChanged: (value) {
-                  setState(() {
-                    olahraga = value!;
-                  });
-                }),
+              title: Text('Olahraga'),
+              value: olahraga,
+              onChanged: (value) {
+                setState(() {
+                  olahraga = value!;
+                });
+              },
+            ),
             CheckboxListTile(
-                title: Text('Seni'),
-                value: seni,
-                onChanged: (value) {
-                  setState(() {
-                    seni = value!;
-                  });
-                }),
+              title: Text('Seni'),
+              value: seni,
+              onChanged: (value) {
+                setState(() {
+                  seni = value!;
+                });
+              },
+            ),
             SizedBox(
               height: 20,
             ),
             SwitchListTile(
-                title: Text('Lulus'),
-                value: switchValue,
-                onChanged: (value) {
-                  setState(() {
-                    switchValue = value;
-                  });
-                }),
+              title: Text('Lulus'),
+              value: switchValue,
+              onChanged: (value) {
+                setState(() {
+                  switchValue = value;
+                });
+              },
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Kirimkan'),
+            )
           ],
         ),
       ),
