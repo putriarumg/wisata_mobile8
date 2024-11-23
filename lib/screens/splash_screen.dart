@@ -15,7 +15,7 @@ class _SplashscreenState extends State<Splashscreen> {
   void initState() {
     super.initState();
     // Menunda selama 3 detik sebelum berpindah ke halaman berikutnya
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
